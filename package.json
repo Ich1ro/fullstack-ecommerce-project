@@ -7,8 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-		"vercel-build": "npm run prepare && next build"
+		"pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
 	},
 	"dependencies": {
 		"@sanity/cli": "^3.9.0",
