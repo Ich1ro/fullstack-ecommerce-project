@@ -15,22 +15,22 @@ const Cart = () => {
 	const handleCheckout = async () => {
 		const stripe = await getStripe();
 
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(cartItems),
-    });
+		const response = await fetch('/api/stripe', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(cartItems)
+		});
 
-    if(response.statusCode === 500) return;
-    
-    const data = await response.json();
+		if (response.statusCode === 500) return;
 
-    toast.loading('Redirecting...');
+		const data = await response.json();
 
-    stripe.redirectToCheckout({ sessionId: data.id });
-	  }	
+		toast.loading('Redirecting...');
+
+		stripe.redirectToCheckout({ sessionId: data.id });
+	};
 
 	return (
 		<div className='cart-wrapper' ref={cartRef}>
@@ -71,9 +71,7 @@ const Cart = () => {
 													onClick={() => toggleCartItemQty(product._id, 'dec')}>
 													<AiOutlineMinus />
 												</span>
-												<span className='num'>
-													{product.quantity}
-												</span>
+												<span className='num'>{product.quantity}</span>
 												<span
 													className='plus'
 													onClick={() => toggleCartItemQty(product._id, 'inc')}>

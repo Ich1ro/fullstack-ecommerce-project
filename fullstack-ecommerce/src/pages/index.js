@@ -12,7 +12,11 @@ const Home = ({ products, bannerData }) => {
 				<p>Headphones store</p>
 			</div>
 
-			<div className='products-container'>{products?.map(product => <Product key={product._id} product={product}/>)}</div>
+			<div className='products-container'>
+				{products?.map(product => (
+					<Product key={product._id} product={product} />
+				))}
+			</div>
 
 			<FooterBanner footerBanner={bannerData.length && bannerData[0]} />
 		</div>

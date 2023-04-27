@@ -8,14 +8,14 @@ import { useStateContext } from '../../../context/StateContext';
 const ProductDetails = ({ product, products }) => {
 	const { image, name, details, price } = product;
 	const [index, setIndex] = useState(0);
-	const { incQty, decQty, onAdd ,qty, setShowCart } = useStateContext();
+	const { incQty, decQty, onAdd, qty, setShowCart } = useStateContext();
 
 	const handleByNow = () => {
-		onAdd(product, qty)
+		onAdd(product, qty);
 
-		setShowCart(true)
-	}
- 
+		setShowCart(true);
+	};
+
 	return (
 		<div>
 			<div className='product-detail-container'>
@@ -26,7 +26,7 @@ const ProductDetails = ({ product, products }) => {
 					<div className='small-images-container'>
 						{image?.map((item, i) => (
 							<img
-							key={i}
+								key={i}
 								src={urlFor(item)}
 								className={i === index ? 'small-image selected-image' : 'small-image'}
 								onMouseEnter={() => setIndex(i)}
@@ -55,9 +55,7 @@ const ProductDetails = ({ product, products }) => {
 							<span className='minus' onClick={decQty}>
 								<AiOutlineMinus />
 							</span>
-							<span className='num'>
-								{qty}
-							</span>
+							<span className='num'>{qty}</span>
 							<span className='plus' onClick={incQty}>
 								<AiOutlinePlus />
 							</span>

@@ -1,4 +1,4 @@
-import {createClient} from '@sanity/client';
+import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
@@ -7,7 +7,7 @@ export const client = createClient({
 	apiVersion: '2023-04-23',
 	useCdn: true,
 	token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
-	ignoreBrowserTokenWarning: true,
+	ignoreBrowserTokenWarning: true
 });
 
 const builder = imageUrlBuilder(client);
